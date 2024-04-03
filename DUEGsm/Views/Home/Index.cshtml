@@ -1,8 +1,80 @@
-﻿@{
+﻿@model MobilViewModel
+
+<link rel="stylesheet" href="~/css/HomeIndex.css" asp-append-version="true" />
+<script src="~/js/cardSlider.js" type="text/javascript" asp-append-version="true"></script>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<body>
+    <div class="SrcBarImgContainer">
+        <p class="Title">Telefonok</p>
+        <p class="AltTitle">Találja meg a megfelelő telefont a megfelelő áron, akár azonnal</p>
+        <form asp-controller="Mobiles" asp-action="Index" method="get">
+            <p>
+                <input class="searchInput" type="text" name="SearchString" placeholder="Keressen márkákra" autocomplete="off" />
+                <input class="searchButton" type="submit" name="Filter" value="Keresés" />
+            </p>
+        </form>
+    </div>
+    <h2>
+        Telefon márkáink
+    </h2>
+    <section class="category">
+        <div class="card">
+            <a class="cardClick" asp-controller="Mobiles" asp-action="Index" asp-route-searchString="Iphone">
+                <img class="categoryImg" src="~/Content/Image/apple.png" alt="Apple">
+                <div class="container">
+                    <h4><b>Apple</b></h4>
+                </div>
+            </a>
+        </div>
+        <div class="card">
+            <a class="cardClick" asp-controller="Mobiles" asp-action="Index" asp-route-searchString="Samsung">
+                <img class="categoryImg" src="~/Content/Image/samsung.png" alt="Samsung">
+                <div class="container">
+                    <h4><b>Samsung</b></h4>
+                </div>
+            </a>
+        </div>
+        <div class="card">
+            <a class="cardClick" asp-controller="Mobiles" asp-action="Index" asp-route-searchString="Huawei">
+                <img class="categoryImg" src="~/Content/Image/huawei.png" alt="Huawei">
+                <div class="container">
+                    <h4><b>Huawei</b></h4>
+                </div>
+            </a>
+        </div>
+        <div class="card">
+            <a class="cardClick" asp-controller="Mobiles" asp-action="Index" asp-route-searchString="Xiomi">
+                <img class="categoryImg" src="~/Content/Image/xiomi.png" alt="Xiomi">
+                <div class="container">
+                    <h4><b>Xiomi</b></h4>
+                </div>
+            </a>
+        </div>
+    </section>
+    <h2>
+        Kiemelt termékek
+    </h2>
+    <div class="wrapper">
+        <i id="left" class="fa-solid fas fa-angel-left"></i>
+        <ul class="carousel">
+            @foreach (var item in Model.Mobile)
+            {
+                <li class="card">
+                    <div class="img">
+                        <img class="kep" src="~/Content/Image/testDevice.jpg" alt="Kép" draggable="false">
+                    </div>
+                    <h2>
+                        @Html.DisplayFor(modelItem => item.Brand)
+                        @Html.DisplayFor(modelItem => item.Modell)
+                    </h2>
+                    <span>@Html.DisplayFor(modelItem => item.Price) <span> Ft</span></span>
+                </li>
+            }
+        </ul>
+        <i id="right" class="fa-solid fas fa-angel-right"></i>
+    </div>
+</body>

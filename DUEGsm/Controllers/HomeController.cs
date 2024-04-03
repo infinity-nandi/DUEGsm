@@ -1,21 +1,33 @@
-﻿using DUEGsm.Models;
+﻿using DUEGsm.Data;
+using DUEGsm.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace DUEGsm.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext _context;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ApplicationDbContext context, ILogger<HomeController> logger)
         {
+            _context = context;
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var brand = from m in _context.Mobiles
+                           select m;
+
+            var brandSearch = new MobilViewModel
+            {
+                Mobile = await brand.ToListAsync()
+            };
+
+            return View(brandSearch);
         }
 
         public IActionResult Privacy()

@@ -1,0 +1,100 @@
+﻿using DUEGsm.Data;
+using Microsoft.EntityFrameworkCore;
+
+namespace DUEGsm.Models.seedData
+{
+    public static class seedData
+    {
+        public static void Initialize(IServiceProvider serviceProvider)
+        {
+            using (var context = new ApplicationDbContext(
+                serviceProvider.GetRequiredService<
+                    DbContextOptions<ApplicationDbContext>>()))
+            {
+                // Look for any movies.
+                if (context.Mobiles.Any())
+                {
+                    return;   // DB has been seeded
+                }
+                context.Mobiles.AddRange(
+                    new Mobile
+                    {
+                        Brand = "Iphone",
+                        Modell = "14",
+                        Color = "Lila",
+                        OperatingSystem = "iOS",
+                        Screen = "OLED 1920x1080",
+                        Processor = "Valami",
+                        FrontCamera = "14px",
+                        BackCamera = "28",
+                        Stroage = 124,
+                        Description = "Description",
+                        Price = 300000
+
+                    },
+                    new Mobile
+                    {
+                        Brand = "Iphone",
+                        Modell = "12",
+                        Color = "Kék",
+                        OperatingSystem = "iOS",
+                        Screen = "OLED 1920x1080",
+                        Processor = "Valami",
+                        FrontCamera = "14px",
+                        BackCamera = "28",
+                        Stroage = 124,
+                        Description = "Description",
+                        Price = 250000
+
+                    },
+                    new Mobile
+                    {
+                        Brand = "Samsung",
+                        Modell = "s24",
+                        Color = "Kék",
+                        OperatingSystem = "Android",
+                        Screen = "OLED 1920x1080",
+                        Processor = "Valami",
+                        FrontCamera = "14px",
+                        BackCamera = "28",
+                        Stroage = 256,
+                        Description = "Description",
+                        Price = 450000
+
+                    },
+                    new Mobile
+                    {
+                        Brand = "Iphone",
+                        Modell = "XS",
+                        Color = "Piros",
+                        OperatingSystem = "iOS",
+                        Screen = "OLED 1920x1080",
+                        Processor = "Valami",
+                        FrontCamera = "14px",
+                        BackCamera = "28",
+                        Stroage = 124,
+                        Description = "Description",
+                        Price = 250000
+
+                    },
+                    new Mobile
+                    {
+                        Brand = "Samsung",
+                        Modell = "A51",
+                        Color = "Kék",
+                        OperatingSystem = "Android",
+                        Screen = "OLED 1920x1080",
+                        Processor = "Valami",
+                        FrontCamera = "14px",
+                        BackCamera = "28",
+                        Stroage = 124,
+                        Description = "Description",
+                        Price = 250000
+
+                    }
+                ) ;
+                context.SaveChanges();
+            }
+        }
+    }
+}

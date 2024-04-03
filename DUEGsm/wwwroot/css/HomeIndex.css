@@ -1,0 +1,231 @@
+﻿.SrcBarImgContainer {
+    width: 100%;
+    height: 600px;
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('../Content/Image/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 25px;
+}
+
+.Title {
+    font-size: 50px;
+    font-weight: bold;
+    font-family: customFont;
+    color: white;
+    margin-left: 4%;
+    padding-top: 25%;
+}
+
+.AltTitle {
+    margin-left: 4%;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: customFont;
+    src: url('../Fonts/ArchivoBlack-Regular.ttf');
+}
+
+form {
+    margin-left: 4%;
+    margin-top: 2.8%;
+    position: relative
+}
+
+.searchInput {
+    height: 60px;
+    width: 50%;
+    border-radius: 15px;
+    font-size: 120%;
+    padding-left: 43px;
+    background-image: url('../Content/Image/searchIcon.png');
+    background-position: 12px 18px;
+    background-repeat: no-repeat;
+    color: gray;
+}
+
+.searchButton {
+    position: absolute;
+    left: 41.5%;
+    top: 10.7px;
+    border-radius: 8px;
+    height: 40px;
+    padding: 0.55% 1.5% 1% 1.5%;
+    border: none;
+    background-color: #6E5381;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.category {
+    display: flex;
+    flex-wrap: wrap;
+    font-family: customFont;
+}
+
+.card {
+    /*transition: 0.3s;*/
+    width: 19.4%;
+    border-radius: 17px;
+    margin: 0.3%;
+    text-align: left;
+    border: none;
+}
+
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+.container {
+    padding: 2px 16px;
+}
+
+.categoryImg {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 17px;
+}
+
+.cardClick {
+    all: unset;
+}
+
+    .cardClick:hover {
+        all: unset;
+    }
+
+h2 {
+    font-family: customFont;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.wrapper {
+    max-width: 1300px;
+    width: 100%;
+    position: relative;
+}
+
+    .wrapper i {
+        height: 50px;
+        width: 50px;
+        background: #6E5381;
+        text-align: center;
+        line-height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        font-size: 10px;
+        transform: translateY(-50%);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+        z-index: 1;
+    }
+
+        .wrapper i:first-child {
+            left: -22px;
+            z-index: 2;
+            background-image: url('../Content/Image/arrow_left.png');
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .wrapper i:last-child {
+            right: -22px;
+            background-image: url('../Content/Image/arrow_right.png');
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+    .wrapper .carousel {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: calc((100% / 4) - 12px);
+        gap: 16px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        scrollbar-width: 0;
+    }
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel :where(.card, .img) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel.dragging {
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+}
+
+.carousel.no-transition {
+    scroll-behavior: auto;
+}
+
+.carousel.dragging .card {
+    cursor: grab;
+    user-select: none;
+}
+
+.carousel .card {
+    scroll-snap-align: start;
+    height: 340px;
+    list-style: none;
+    background: #FAF9F6;
+    border-radius: 24px;
+    display: flex;
+    cursor: pointer;
+    width: 98%;
+    padding-bottom: 15px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /*border: 2px solid #647A85;*/
+}
+
+.card .img {
+    /*background: #647B84;*/
+    width: 185px;
+    height: 185px;
+    border-radius: 16%;
+}
+
+    .card .img img {
+        width: 180px;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 16%;
+        border: 4px solid #fff;
+    }
+
+.card h2 {
+    font-weight: 500;
+    font-size: 1.56rem;
+    margin: 30px 0 5px;
+}
+
+.card span {
+    color: black;
+    font-size: 1.31rem;
+}
+
+@media screen and (max-width: 900px) {
+    .wrapper .carousel {
+        grid-auto-columns: calc((100% / 2) - 9px);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .wrapper .carousel {
+        grid-auto-columns: 100%;
+    }
+}

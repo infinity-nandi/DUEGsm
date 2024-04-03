@@ -1,0 +1,89 @@
+﻿@model MobilViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Mobile![0].Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mobile![0].Modell)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mobile![0].Color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mobile![0].OperatingSystem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mobile![0].Screen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mobile![0].Processor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mobile![0].FrontCamera)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mobile![0].BackCamera)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mobile![0].Stroage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mobile![0].Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Mobile) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modell)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OperatingSystem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Screen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Processor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FrontCamera)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BackCamera)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stroage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
