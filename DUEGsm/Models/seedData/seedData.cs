@@ -19,8 +19,8 @@ namespace DUEGsm.Models.seedData
                 context.Mobiles.AddRange(
                     new Mobile
                     {
-                        Brand = "Iphone",
-                        Modell = "14",
+                        Brand = "Apple",
+                        Modell = "Iphone 14",
                         Color = "Lila",
                         OperatingSystem = "iOS",
                         Screen = "OLED 1920x1080",
@@ -34,8 +34,8 @@ namespace DUEGsm.Models.seedData
                     },
                     new Mobile
                     {
-                        Brand = "Iphone",
-                        Modell = "12",
+                        Brand = "Apple",
+                        Modell = "iphone 12",
                         Color = "Kék",
                         OperatingSystem = "iOS",
                         Screen = "OLED 1920x1080",
@@ -50,7 +50,7 @@ namespace DUEGsm.Models.seedData
                     new Mobile
                     {
                         Brand = "Samsung",
-                        Modell = "s24",
+                        Modell = "galaxy s24",
                         Color = "Kék",
                         OperatingSystem = "Android",
                         Screen = "OLED 1920x1080",
@@ -64,8 +64,8 @@ namespace DUEGsm.Models.seedData
                     },
                     new Mobile
                     {
-                        Brand = "Iphone",
-                        Modell = "XS",
+                        Brand = "Apple",
+                        Modell = "Iphone XS",
                         Color = "Piros",
                         OperatingSystem = "iOS",
                         Screen = "OLED 1920x1080",
