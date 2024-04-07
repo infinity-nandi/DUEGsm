@@ -13,7 +13,7 @@
         public string Processor { get; set; }
         public string FrontCamera { get; set; }
         public string BackCamera { get; set; }
-        public int Stroage { get; set; }
+        public int Storage { get; set; }
         public string? Description { get; set; }
         public int Price { get; set; }
 
