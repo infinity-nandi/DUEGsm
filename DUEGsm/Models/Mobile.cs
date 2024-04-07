@@ -5,7 +5,7 @@
         public int Id { get; set; }
         //Márka mint samsung/apple
         public string? Brand { get; set; }
-        //Model mint galaxy s24/iphone 15
+        //Model mint galaxy s23/iphone 15
         public string Modell { get; set; }
         public string Color { get; set; }
         public string OperatingSystem { get; set; }
