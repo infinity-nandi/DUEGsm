@@ -3,87 +3,167 @@
 @{
     ViewData["Title"] = "Index";
 }
+<link rel="stylesheet" href="~/css/MobilesIndex.css" asp-append-version="true" />
 
 <h1>Index</h1>
+<div class="container">
+    <div class="filters">
+        <p>
+            <h4 class="sortTitle">Szűrési beállítások:</h4>
+            <form asp-controller="Mobiles" asp-action="Index" method="get">
+                <h5 class="sortTags">
+                    Megnevezés:
+                </h5>
+                <div class="searchContainer">
+                    <input type="text" asp-for="SearchString" class="search" placeholder="Keressen..." /><br>
+                </div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Mobile![0].Brand)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Mobile![0].Modell)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Mobile![0].Color)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Mobile![0].OperatingSystem)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Mobile![0].Screen)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Mobile![0].Processor)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Mobile![0].FrontCamera)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Mobile![0].BackCamera)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Mobile![0].Stroage)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Mobile![0].Description)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Mobile) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Brand)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Modell)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Color)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OperatingSystem)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Screen)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Processor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FrontCamera)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BackCamera)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Stroage)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                <h5 class="sortTags">
+                    Márka:
+                </h5>
+@*                  <select asp-for="ProductBrand" asp-items="Model.Brand" class="BrandOption">
+                    <option value="">Összes</option>
+                </select>  *@
+                <div>
+                    <ul>
+                        <li>
+                            <label>
+                                <input type="checkbox" asp-for="ProductBrand" value="0" name="filterValue">
+                                Összes
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" asp-for="ProductBrand" value="1" name="filterValue">
+                                Apple
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" asp-for="ProductBrand" value="2" name="filterValue">
+                                Huawei
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" asp-for="ProductBrand" value="3" name="filterValue">
+                                Samsung
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" asp-for="ProductBrand" value="4" name="filterValue">
+                                Xiomi
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <h5 class="sortTags">
+                    Modell:
+                </h5>
+                <select asp-for="ProductModel" asp-items="Model.Modell" class="TypeOption">
+                    <option value="">Összes</option>
+                </select>
+                <br>
+
+                <br>
+                <h5 class="sortTags">
+                    Rendezés:
+                </h5>
+                <select asp-for="OrderValue" class="DropDown">
+                    <option value="1">Legújabb termék</option>
+                    <option value="2">Ár szerint csökkenő sorrend</option>
+                    <option value="3">Ár szerint növekvő sorrend</option>
+                    <option value="4">A-tól Z-ig modell szerint</option>
+                    <option value="5">Z-től A-ig modell szerint</option>
+                </select>
+                <input class="searchButton" type="submit" value="Szűrés" />
+            </form>
+            <a asp-action="Create">Create New</a>
+        </p>
+    </div>
+    <div class="items">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Mobile![0].Brand)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Mobile![0].Modell)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Mobile![0].Color)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Mobile![0].OperatingSystem)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Mobile![0].Screen)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Mobile![0].Processor)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Mobile![0].FrontCamera)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Mobile![0].BackCamera)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Mobile![0].Stroage)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Mobile![0].Description)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Mobile)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Brand)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Modell)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Color)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OperatingSystem)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Screen)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Processor)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FrontCamera)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BackCamera)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Stroage)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

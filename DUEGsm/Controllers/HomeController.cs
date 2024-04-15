@@ -22,7 +22,7 @@ namespace DUEGsm.Controllers
             var brand = from m in _context.Mobiles
                            select m;
 
-            var brandSearch = new MobilViewModel
+            var brandSearch = new HomeViewModel
             {
                 Mobile = await brand.ToListAsync()
             };

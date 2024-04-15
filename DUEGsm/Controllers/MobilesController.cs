@@ -20,19 +20,73 @@ namespace DUEGsm.Controllers
         }
 
         // GET: Mobiles
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string searchString, string productModell, int orderValue, int filterValue)
         {
-            var brand = from m in _context.Mobiles
+            var mobile = from m in _context.Mobiles
                            select m;
+
+            IQueryable<string> typeQuery = from tq in _context.Mobiles
+                                           orderby tq.Modell
+                                           select tq.Modell;
+
+            IQueryable<string> brandQuery = from bq in _context.Mobiles
+                                            orderby bq.Brand
+                                            select bq.Brand;
+
+
+            switch (orderValue)
+            {
+                case 0:
+                    break;
+                case 1:
+                    mobile = mobile.OrderByDescending(x => x.UploadDate);
+                    break;
+                case 2:
+                    mobile = mobile.OrderByDescending(x => x.Price);
+                    break;
+                case 3:
+                    mobile = mobile.OrderBy(x => x.Price);
+                    break;
+                case 4:
+                    mobile = mobile.OrderBy(x => x.Modell);
+                    break;
+                case 5:
+                    mobile = mobile.OrderByDescending(x => x.Modell);
+                    break;
+            }
+
+            switch (filterValue)
+            {
+                case 0:
+                    break;
+                case 1:
+                    mobile = mobile.Where(x => x.Brand == "Apple");
+                    break;
+                case 2:
+                    mobile = mobile.Where(x => x.Brand == "Huawei");
+                    break;
+                case 3:
+                    mobile = mobile.Where(x => x.Brand == "Samsung");
+                    break;
+                case 4:
+                    mobile = mobile.Where(x => x.Brand == "Xiomi");
+                    break;
+            }
 
             if (!string.IsNullOrEmpty(searchString))
             {
-                brand = brand.Where(x => x.Brand!.Contains(searchString));
+                mobile = mobile.Where(x => x.Brand!.Contains(searchString));
+            }
+
+            if (!string.IsNullOrEmpty(productModell))
+            {
+                mobile = mobile.Where(pt => pt.Modell == productModell);
             }
 
             var brandSearch = new MobilViewModel
             {
-                Mobile = await brand.ToListAsync()
+                Modell = new SelectList(await typeQuery.Distinct().ToListAsync()),
+                Mobile = await mobile.ToListAsync()
             };
 
             return View(brandSearch);

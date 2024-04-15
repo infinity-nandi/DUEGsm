@@ -11,7 +11,6 @@ namespace DUEGsm.Models.seedData
                 serviceProvider.GetRequiredService<
                     DbContextOptions<ApplicationDbContext>>()))
             {
-                // Look for any movies.
                 if (context.Mobiles.Any())
                 {
                     return;   // DB has been seeded

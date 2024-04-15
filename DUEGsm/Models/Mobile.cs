@@ -16,6 +16,7 @@
         public int Stroage { get; set; }
         public string? Description { get; set; }
         public int Price { get; set; }
+        public DateTime? UploadDate { get; set; }
 
         //Majd még a képet hozzáadom/hozzáadjuk később
     }
