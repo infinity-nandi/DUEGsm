@@ -27,32 +27,32 @@
                 <div>
                     <ul>
                         <li>
-                            <label>
-                                <input type="checkbox" asp-for="ProductBrand" value="0" name="filterValue">
+                            <label class="cyberpunk-checkbox-label">
+                                <input class="cyberpunk-checkbox" type="checkbox" asp-for="ProductBrand" value="0" name="filterValue" id="form-checkbox-1">
                                 Összes
                             </label>
                         </li>
                         <li>
-                            <label>
-                                <input type="checkbox" asp-for="ProductBrand" value="1" name="filterValue">
+                            <label class="cyberpunk-checkbox-label">
+                                <input class="cyberpunk-checkbox" type="checkbox" asp-for="ProductBrand" value="1" name="filterValue">
                                 Apple
-                            </label>
+                            </label class="cyberpunk-checkbox-label">
                         </li>
                         <li>
-                            <label>
-                                <input type="checkbox" asp-for="ProductBrand" value="2" name="filterValue">
+                            <label class="cyberpunk-checkbox-label">
+                                <input class="cyberpunk-checkbox" type="checkbox" asp-for="ProductBrand" value="2" name="filterValue">
                                 Huawei
                             </label>
                         </li>
                         <li>
-                            <label>
-                                <input type="checkbox" asp-for="ProductBrand" value="3" name="filterValue">
+                            <label class="cyberpunk-checkbox-label">
+                                <input class="cyberpunk-checkbox" type="checkbox" asp-for="ProductBrand" value="3" name="filterValue">
                                 Samsung
                             </label>
                         </li>
                         <li>
-                            <label>
-                                <input type="checkbox" asp-for="ProductBrand" value="4" name="filterValue">
+                            <label class="cyberpunk-checkbox-label">
+                                <input class="cyberpunk-checkbox" type="checkbox" asp-for="ProductBrand" value="4" name="filterValue">
                                 Xiomi
                             </label>
                         </li>
@@ -78,6 +78,7 @@
                     <option value="4">A-tól Z-ig modell szerint</option>
                     <option value="5">Z-től A-ig modell szerint</option>
                 </select>
+                <br>
                 <input class="searchButton" type="submit" value="Szűrés" />
             </form>
             <a asp-action="Create">Create New</a>
