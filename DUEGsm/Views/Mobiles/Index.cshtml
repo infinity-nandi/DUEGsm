@@ -1,13 +1,15 @@
 ﻿@model MobilViewModel
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Telefonok";
 }
 <link rel="stylesheet" href="~/css/MobilesIndex.css" asp-append-version="true" />
 
-<h1>Index</h1>
-<div class="container">
-    <div class="filters">
+<h1>Telefonok</h1>
+<div class="containerLeft">
+    <div>
         <p>
             <h4 class="sortTitle">Szűrési beállítások:</h4>
             <form asp-controller="Mobiles" asp-action="Index" method="get">
@@ -25,7 +27,7 @@
                     <option value="">Összes</option>
                 </select>  *@
                 <div>
-                    <ul>
+                    <ul class="sortOptions">
                         <li>
                             <label class="cyberpunk-checkbox-label">
                                 <input class="cyberpunk-checkbox" type="checkbox" asp-for="ProductBrand" value="0" name="filterValue" id="form-checkbox-1">
@@ -66,8 +68,6 @@
                     <option value="">Összes</option>
                 </select>
                 <br>
-
-                <br>
                 <h5 class="sortTags">
                     Rendezés:
                 </h5>
@@ -84,87 +84,44 @@
             <a asp-action="Create">Create New</a>
         </p>
     </div>
-    <div class="items">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Mobile![0].Brand)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Mobile![0].Modell)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Mobile![0].Color)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Mobile![0].OperatingSystem)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Mobile![0].Screen)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Mobile![0].Processor)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Mobile![0].FrontCamera)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Mobile![0].BackCamera)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Mobile![0].Stroage)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Mobile![0].Description)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.Mobile)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Brand)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Modell)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Color)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.OperatingSystem)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Screen)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Processor)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FrontCamera)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.BackCamera)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Stroage)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Description)
-                        </td>
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
 </div>
+<div class="containerRight">
+    <section class="products">
+        @if (Model.Mobile != null)
+        {
+            @foreach (var item in Model.Mobile)
+            {
+                <div class="box">
+                    <span></span>
+                    <div class="content">
+                    <div class="image">
+                       <img class="kep" src="~/Content/Image//testDevice.jpg" alt="Nincs kép">
+                    </div>
+                        <h5 class="text">
+                            @Html.DisplayFor(modelItem => item.Brand)
+                            @Html.DisplayFor(modelItem => item.Modell)
+                        </h5>
+                        <h6 class="text">@Html.DisplayFor(modelItem => item.Price) Ft</h6>
+                        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                            <a class="abuttom" asp-action="Edit" asp-route-id="@item.Id">Szerksztés</a><br>
+                        }
+                        <a class="abuttom" asp-action="Details" asp-route-id="@item.Id">Részletek</a><br>
+@*                         @if (SignInManager.IsSignedIn(User) && User.IsInRole("Felhasználó"))
+                        {
+                            <a class="abuttom" asp-controller="Cart" asp-action="buy" asp-route-id="@item.Id">Kosárba</a>
+                            <br>
+                        } *@
+                        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                            <a class="abuttom" asp-action="Delete" asp-route-id="@item.Id">Törlés</a>
+                        }
+                    </div>
+                </div>
+            }
+        }
+    </section>
+</div>
+
 
 

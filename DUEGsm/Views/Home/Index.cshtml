@@ -63,6 +63,7 @@
         <ul class="carousel">
             @foreach (var item in Model.Mobile)
             {
+                <a class="cardClick" asp-controller="Mobiles" asp-action="Details" asp-route-id="@item.Id">
                 <li class="card">
                     <div class="img">
                         <img class="kep" src="~/Content/Image/testDevice.jpg" alt="Kép" draggable="false">
@@ -72,7 +73,7 @@
                         @Html.DisplayFor(modelItem => item.Modell)
                     </h2>
                     <span>@Html.DisplayFor(modelItem => item.Price) <span> Ft</span></span>
-                </li>
+                </li></a>
             }
         </ul>
         <i id="right" class="fa-solid fas fa-angel-right"></i>

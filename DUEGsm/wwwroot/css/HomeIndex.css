@@ -207,15 +207,15 @@ h2 {
 .card .img {
     /*background: #647B84;*/
     width: 185px;
-    height: 185px;
+    height: 180px;
     border-radius: 16%;
 }
 
     .card .img img {
         width: 180px;
-        height: 180px;
+        height: 215px;
         object-fit: cover;
-        border-radius: 16%;
+        border-radius: 10%;
         border: 4px solid #fff;
     }
 
