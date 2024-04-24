@@ -6,12 +6,13 @@
     ViewData["Title"] = "Telefonok";
 }
 <link rel="stylesheet" href="~/css/MobilesIndex.css" asp-append-version="true" />
+<script src="~/js/inputBefore.js" type="text/javascript" asp-append-version="true"></script>
 
 <h1>Telefonok</h1>
 <div class="containerLeft">
     <div>
         <p>
-            <h4 class="sortTitle">Szűrési beállítások:</h4>
+            <h3 class="sortTitle">Keresési feltételek:</h3>
             <form asp-controller="Mobiles" asp-action="Index" method="get">
                 <h5 class="sortTags">
                     Megnevezés:
@@ -64,24 +65,31 @@
                 <h5 class="sortTags">
                     Modell:
                 </h5>
-                <select asp-for="ProductModel" asp-items="Model.Modell" class="TypeOption">
-                    <option value="">Összes</option>
-                </select>
-                <br>
+                <div class="searchContainer">
+                    <select asp-for="ProductModel" asp-items="Model.Modell" class="search">
+                        <option value="">Összes</option>
+                    </select>
+                </div>
                 <h5 class="sortTags">
                     Rendezés:
                 </h5>
-                <select asp-for="OrderValue" class="DropDown">
-                    <option value="1">Legújabb termék</option>
-                    <option value="2">Ár szerint csökkenő sorrend</option>
-                    <option value="3">Ár szerint növekvő sorrend</option>
-                    <option value="4">A-tól Z-ig modell szerint</option>
-                    <option value="5">Z-től A-ig modell szerint</option>
-                </select>
+                <div class="searchContainer">
+                    <select asp-for="OrderValue" class="search">
+                        <option value="1">Legújabb termék</option>
+                        <option value="2">Ár szerint csökkenő sorrend</option>
+                        <option value="3">Ár szerint növekvő sorrend</option>
+                        <option value="4">A-tól Z-ig modell szerint</option>
+                        <option value="5">Z-től A-ig modell szerint</option>
+                    </select>
+                </div>
                 <br>
-                <input class="searchButton" type="submit" value="Szűrés" />
+                @* <input class="searchButton" type="submit" value="Keresés" /> *@
+                <button type="submit" class="buttonStyle">Keresés</button>
             </form>
-            <a asp-action="Create">Create New</a>
+            @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+            {
+                <a asp-action="Create"><input type="button" class="inputButtonStyle" value="Termék hozzáadása"/></a>
+            }
         </p>
     </div>
 </div>
@@ -91,6 +99,7 @@
         {
             @foreach (var item in Model.Mobile)
             {
+                <a class="abuttom" asp-action="Details" asp-route-id="@item.Id">
                 <div class="box">
                     <span></span>
                     <div class="content">
@@ -106,7 +115,7 @@
                         {
                             <a class="abuttom" asp-action="Edit" asp-route-id="@item.Id">Szerksztés</a><br>
                         }
-                        <a class="abuttom" asp-action="Details" asp-route-id="@item.Id">Részletek</a><br>
+                        @* <a class="abuttom" asp-action="Details" asp-route-id="@item.Id">Részletek</a><br> *@
 @*                         @if (SignInManager.IsSignedIn(User) && User.IsInRole("Felhasználó"))
                         {
                             <a class="abuttom" asp-controller="Cart" asp-action="buy" asp-route-id="@item.Id">Kosárba</a>
@@ -118,6 +127,7 @@
                         }
                     </div>
                 </div>
+                </a>
             }
         }
     </section>

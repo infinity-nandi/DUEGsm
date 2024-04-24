@@ -253,4 +253,79 @@ ul {
     margin-left: -22px;
 }
 
+.abuttom {
+    all: unset;
+}
+
+    .abuttom:hover {
+        all: unset;
+        cursor: pointer;
+    }
+
+.buttonStyle {
+    width: 260px;
+    padding: 15px 25px;
+    border: unset;
+    border-radius: 25px;
+    color: #e8e8e8;
+    z-index: 1;
+    background: #150036;
+    position: relative;
+    font-weight: 1000;
+    font-size: 17px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms;
+    overflow: hidden;
+}
+
+    .buttonStyle::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 0;
+        border-radius: 15px;
+        background-color: #62134C;
+        z-index: -1;
+        -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+        box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+        transition: all 250ms
+    }
+
+    .buttonStyle:hover {
+        color: #e8e8e8;
+    }
+
+        .buttonStyle:hover::before {
+            width: 100%;
+        }
+
+.inputButtonStyle {
+    margin-top: 6%;
+    width: 260px;
+    padding: 15px 25px;
+    border: unset;
+    border-radius: 25px;
+    color: #e8e8e8;
+    z-index: 1;
+    background: #150036;
+    position: relative;
+    font-weight: 1000;
+    font-size: 17px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms;
+    overflow: hidden;
+}
+    .inputButtonStyle:hover {
+        color: #e8e8e8;
+    }
+
+h1 {
+    font-weight: bold;
+}
+
+
 
