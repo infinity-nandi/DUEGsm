@@ -1,8 +1,14 @@
-﻿.loginForm {
+﻿.bg {
+    background-color: black;
+    background: linear-gradient(to right,rgb(98,19,76),rgb(21,0,54));
+}
+
+.loginForm {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background: linear-gradient(to right,rgb(98,19,76),rgb(21,0,54));
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
     padding: 40px;
     border-radius: 10px;
     width: 400px;
@@ -60,6 +66,12 @@
     box-shadow: 2px 2px 12px inset black;
     background: linear-gradient(to right,rgb(98,19,76),rgb(21,0,54));
 }
+
+    .inputForm:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px #150036 inset;
+        -webkit-text-fill-color: white !important;
+        /*background-image: linear-gradient(to right, rgb(98,19,76), rgb(21,0,54)) !important;*/
+    }
 
 .span:hover {
     font-weight: bold;
@@ -123,3 +135,7 @@
         color: white;
         cursor: pointer;
     }
+
+#bg {
+    background-image: linear-gradient(to right,rgb(98,19,76),rgb(21,0,54));
+}

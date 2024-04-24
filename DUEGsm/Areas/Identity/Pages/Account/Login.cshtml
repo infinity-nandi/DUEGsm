@@ -5,9 +5,10 @@
     ViewData["Title"] = "Bejelentkezés";
 }
 <link rel="stylesheet" href="~/css/LoginIndex.css" asp-append-version="true" />
+<script src="~/js/ColorInput.js" type="text/javascript" asp-append-version="true"></script>
 
-@* <div class="row">
-    <div class="col-md-4"> *@
+<body class="bg">
+    @* <div class="col-md-4"> *@
             <form id="account" method="post" class="loginForm">
                 <div class="flex">
                     <div class="login color">Bejelentkezés</div>
@@ -16,7 +17,7 @@
                     <input asp-for="Input.Email" class="inputForm" autocomplete="username" aria-required="true" />
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
 
-                    <label asp-for="Input.Password" class="color">Jelszó</label>
+                    <label asp-for="Input.Password" class="color"></label>
                     <input asp-for="Input.Password" class="inputForm" autocomplete="current-password" aria-required="true" />                
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                     <button id="login-submit" type="submit" class="LogInbutton"> Bejelentkezés</button>
@@ -38,8 +39,8 @@
                 </div>
                 </div>
             </form>
-@*     </div>
-</div> *@
+    @* </div> *@
+</body>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

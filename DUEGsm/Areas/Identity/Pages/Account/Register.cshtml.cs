@@ -71,11 +71,18 @@ namespace DUEGsm.Areas.Identity.Pages.Account
         /// </summary>
         public class InputModel
         {
+            [Required(ErrorMessage = "A mező nem lehet üres!")]
+            [Display(Name = "Vezetéknév")]
+            public string LastName { get; set; }
+
+            [Required(ErrorMessage = "A mező nem lehet üres!")]
+            [Display(Name = "Keresztnév")]
+            public string FirstName { get; set; }
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
+            [Required(ErrorMessage = "A mező nem lehet üres!")]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
@@ -84,19 +91,20 @@ namespace DUEGsm.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [Required(ErrorMessage = "A mező nem lehet üres!")]
+            [StringLength(100, ErrorMessage = "A jelszó minimum {2} és maximum {1} hosszú.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Display(Name = "Jelszó")]
             public string Password { get; set; }
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
+            [Required(ErrorMessage = "A mező nem lehet üres!")]
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Display(Name = "Jelszó megerősítése")]
+            [Compare("Password", ErrorMessage = "A jelszó és a jelszó megerősítése mező nem egyeznek.")]
             public string ConfirmPassword { get; set; }
         }
 

@@ -65,7 +65,7 @@ namespace DUEGsm.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
+            [Required(ErrorMessage = "A mező nem lehet üres!")]
             [EmailAddress]
             public string Email { get; set; }
 
@@ -73,8 +73,9 @@ namespace DUEGsm.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
+            [Required(ErrorMessage = "A mező nem lehet üres!")]
             [DataType(DataType.Password)]
+            [Display(Name = "Jelszó")]
             public string Password { get; set; }
 
             /// <summary>
