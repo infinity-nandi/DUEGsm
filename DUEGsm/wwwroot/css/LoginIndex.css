@@ -1,5 +1,5 @@
 ﻿.bg {
-    background-color: black;
+   /* background-color: black;*/
     background: linear-gradient(to right,rgb(98,19,76),rgb(21,0,54));
 }
 
@@ -138,4 +138,16 @@
 
 #bg {
     background-image: linear-gradient(to right,rgb(98,19,76),rgb(21,0,54));
+}
+
+.regConf {
+    color: white;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.AltTitle {
+    font-size: 18px;
 }

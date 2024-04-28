@@ -1,8 +1,15 @@
 ﻿@page
 @model ConfirmEmailModel
 @{
-    ViewData["Title"] = "Confirm email";
+    ViewData["Title"] = "Email megerősítve";
 }
 
-<h1>@ViewData["Title"]</h1>
-<partial name="_StatusMessage" model="Model.StatusMessage" />
+<link rel="stylesheet" href="~/css/LoginIndex.css" asp-append-version="true" />
+
+<body class="bg">
+    <div class="regConf">
+        <h1>@ViewData["Title"]</h1>
+        Köszönjük a megerősítést!
+    </div>
+</body>
+

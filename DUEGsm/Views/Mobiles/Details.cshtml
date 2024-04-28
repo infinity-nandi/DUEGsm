@@ -1,11 +1,19 @@
-﻿@model DUEGsm.Models.Mobile
+﻿@model DUEGsm.Models.Mobile 
 
 @{
     ViewData["Title"] = "Details";
 }
 
+<link rel="stylesheet" href="~/css/MobilesDetDel.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/HomeIndex.css" asp-append-version="true" />
+<script src="~/js/cardSlider.js" type="text/javascript" asp-append-version="true"></script>
+
 <h1>Details</h1>
 
+
+<div class="conLeft">
+    <img class="Pic" src="~/Content/Image//testDevice.jpg" alt="Nincs kép">
+</div>
 <div>
     <h4>Mobile</h4>
     <hr />
@@ -72,6 +80,29 @@
         </dd>
     </dl>
 </div>
+@* <h2>
+    További termékek
+</h2>
+<div class="wrapper">
+    <i id="left" class="fa-solid fas fa-angel-left"></i>
+    <ul class="carousel">
+        @foreach (var item in )
+        {
+            <a class="cardClick" asp-controller="Mobiles" asp-action="Details" asp-route-id="@item.Id">
+            <li class="card">
+                <div class="img">
+                    <img class="kep" src="~/Content/Image/testDevice.jpg" alt="Kép" draggable="false">
+                </div>
+                <h2>
+                        @Html.DisplayFor(modelItem => item.Brand)
+                        @Html.DisplayFor(modelItem => item.Modell)
+                </h2>
+                <span>@Html.DisplayFor(modelItem => item.Price) <span> Ft</span></span>
+            </li></a>
+        }
+    </ul>
+    <i id="right" class="fa-solid fas fa-angel-right"></i>
+</div> *@
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>

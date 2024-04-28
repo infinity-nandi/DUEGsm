@@ -1,23 +1,32 @@
 ﻿@page
 @model RegisterConfirmationModel
+
+<link rel="stylesheet" href="~/css/LoginIndex.css" asp-append-version="true" />
+
 @{
-    ViewData["Title"] = "Register confirmation";
+    ViewData["Title"] = "Regisztráció megerősítése";
 }
 
-<h1>@ViewData["Title"]</h1>
-@{
-    if (@Model.DisplayConfirmAccountLink)
-    {
-<p>
-    This app does not currently have a real email sender registered, see <a href="https://aka.ms/aspaccountconf">these docs</a> for how to configure a real email sender.
-    Normally this would be emailed: <a id="confirm-link" href="@Model.EmailConfirmationUrl">Click here to confirm your account</a>
-</p>
-    }
-    else
-    {
-<p>
-        Please check your email to confirm your account.
-</p>
-    }
-}
+<body class="bg"> 
+    <div class="regConf">
+        <h1>@ViewData["Title"]</h1>
+        @{
+            if (@Model.DisplayConfirmAccountLink)
+            {
+                <p>
+                    Ez csak egy szimulált email megerősítés.
+                    Erősítse meg itt az email címét: <b><a class="unset" id="confirm-link" href="@Model.EmailConfirmationUrl">Click here to confirm your account</a></b>
+                </p>
+            }
+            else
+            {
+                <p>
+                    Please check your email to confirm your account.
+                </p>
+            }
+        }
+    </div>
+</body>
+
+
 

@@ -1,0 +1,11 @@
+﻿.conLeft {
+    float: left;
+    width: 300px;
+    margin-right: 30px;
+}
+
+.Pic{
+    width:300px;
+    height: auto;
+    margin-top: 4%;
+}
