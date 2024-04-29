@@ -151,3 +151,167 @@
 .AltTitle {
     font-size: 18px;
 }
+
+.roleTable {
+    width: 100%;
+    border-collapse: separate;
+    border: solid white 4px;
+    border-radius: 6px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: 20px
+}
+
+td, th {
+    border-left: solid white 1px;
+    border-top: solid white 1px;
+    padding: 10px;
+}
+
+th {
+    border-top: none;
+    border-bottom: solid white 1px;
+    font-size: 25px;
+}
+
+    td:first-child, th:first-child {
+        border-left: none;
+    }
+
+
+.AddBttn {
+    width: 260px;
+    padding: 15px 25px;
+    border: unset;
+    border-radius: 25px;
+    color: #e8e8e8;
+    z-index: 1;
+    background: #150036;
+    position: relative;
+    font-weight: 1000;
+    font-size: 17px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms;
+    overflow: hidden;
+}
+
+
+.BttnCon {
+    text-align: center;
+}
+
+
+.cpcheckbox {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    border-radius: 5px;
+    background-color: transparent;
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+    margin-left: 41%;
+    cursor: pointer;
+}
+
+    .cpcheckbox:before {
+        content: "";
+        background-color: white;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        width: 10px;
+        height: 10px;
+        border-radius: 3px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .cpcheckbox:checked:before {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+.cpcheckbox-label {
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2%;
+}
+
+.BttnConWidth {
+    width: 100px;
+}
+
+.Save {
+    display: flex;
+    float: right;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    font-size: 19px;
+    font-weight: bold;
+    background-color: #97477D;
+    color: white;
+}
+
+    .Save:hover {
+        box-shadow: 2px 2px 12px #97477D;
+    }
+
+.Back {
+    display: flex;
+    width: 75px;
+    text-decoration: none;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    font-size: 19px;
+    font-weight: bold;
+    margin-bottom: 1%;
+    background-color: #97477D;
+    color: white;
+}
+
+    .Back:hover {
+        color: white;
+        box-shadow: 2px 2px 12px #97477D;
+    }
+
+.Title {
+    font-size: 45px;
+    text-decoration: underline;
+}
+
+.createRole-label {
+    font-size: 20px;
+    margin-top: 2%;
+    font-weight: bold;
+}
+
+.createRole {
+    margin-top: 0.5%;
+    margin-bottom: 2%;
+    color: white;
+    width: 100%;
+    height: 50px;
+    outline: none;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 25px;
+    box-shadow: 2px 2px 12px inset black;
+    background: linear-gradient(to right,rgb(98,19,76),rgb(21,0,54));
+}
+
+    .createRole:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px #150036 inset;
+        -webkit-text-fill-color: white !important;
+        /*background-image: linear-gradient(to right, rgb(98,19,76), rgb(21,0,54)) !important;*/
+    }

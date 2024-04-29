@@ -1,28 +1,28 @@
 ﻿@using Microsoft.AspNetCore.Identity;
 @model IEnumerable<IdentityRole>
+
+<link rel="stylesheet" href="~/css/LoginIndex.css" asp-append-version="true" />
+
 @{
     ViewData["Title"] = "Felhasználói körök";
 }
+<body class="bg">
 
-<h1 class="bg-info text-white">Adminok</h1>
-@* <a asp-action="Create" class="btn btn-secondary">Create a Role</a> *@
+<div class="regConf">
+        <h1 class="Title">Jogosultságok</h1>
+        <table class="roleTable">
+            <tr>@* <th>ID</th> *@<th>Megnevezés</th><th>Felhasználók</th><th class="BttnCon">Hozzáadás</th></tr>
+            @foreach (var role in Model)
+            {
+                <tr>
+                    @* <td>@role.Id</td> *@
+                    <td>@role.Name</td>
+                    <td i-role="@role.Id"></td>
+                    <td class="BttnCon"><a asp-action="Update" asp-route-id="@role.Id"><input type="button" class="AddBttn" value="Hozzáadás" /></a></td>
+                </tr>
+            }
+        </table>
+        <a asp-action="Create"><input type="button" class="AddBttn" value="Jogosultság létrehozása" /></a>
+</div>
+</body>
 
-<table class="table table-sm table-bordered table-bordered">
-    <tr>@* <th>ID</th> *@<th>Megnevezés</th><th>Felhasználók</th><th>Hozzáadás</th></tr>
-    @foreach (var role in Model)
-    {
-        <tr>
-            @* <td>@role.Id</td> *@
-            <td>@role.Name</td>
-            <td i-role="@role.Id"></td>
-            <td><a class="btn btn-sm btn-primary" asp-action="Update" asp-route-id="@role.Id">Hozzáadás</a></td>
-@*             <td>
-                <form asp-action="Delete" asp-route-id="@role.Id" method="post">
-                    <button type="submit" class="btn btn-sm btn-danger">
-                        Delete
-                    </button>
-                </form>
-            </td> *@
-        </tr>
-    }
-</table>

@@ -1,16 +1,24 @@
 ﻿@model string
 @{
-    ViewData["Title"] = "CREATE ROLE";
+    ViewData["Title"] = "Jogosultság létrehozása";
 }
 
-<h1 class="bg-info text-white">Create a Role</h1>
-<a asp-action="Index" class="btn btn-secondary">Back</a>
-<div asp-validation-summary="All" class="text-danger"></div>
+<link rel="stylesheet" href="~/css/LoginIndex.css" asp-append-version="true" />
 
-<form asp-action="Create" method="post">
-    <div class="form-group">
-        <label for="name">Name:</label>
-        <input name="name" class="form-control" />
+<body class="bg">
+    <div class="regConf">
+        <h1 class="Title">Jogosultság létrehozása</h1>
+        
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <form asp-action="Create" method="post">
+            <div class="form-group">
+                <label for="name" class="createRole-label">Megnevezés:</label>
+                <input name="name" class="createRole" />
+            </div>
+            <button type="submit" class="Save">Létrehozás</button>
+        </form>
+        <a asp-action="Index" class="Back">Vissza</a>
     </div>
-    <button type="submit" class="btn btn-primary">Create</button>
-</form>
+</body>
+
