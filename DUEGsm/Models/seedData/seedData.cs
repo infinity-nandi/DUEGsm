@@ -28,7 +28,8 @@ namespace DUEGsm.Models.seedData
                         BackCamera = "28",
                         Stroage = 124,
                         Description = "Description",
-                        Price = 300000
+                        Price = 300000,
+                        UploadDate = DateTime.Parse("2023-7-10"),
 
                     },
                     new Mobile
@@ -43,7 +44,8 @@ namespace DUEGsm.Models.seedData
                         BackCamera = "28",
                         Stroage = 124,
                         Description = "Description",
-                        Price = 250000
+                        Price = 250000,
+                        UploadDate = DateTime.Parse("2023-7-10"),
 
                     },
                     new Mobile
@@ -58,7 +60,8 @@ namespace DUEGsm.Models.seedData
                         BackCamera = "28",
                         Stroage = 256,
                         Description = "Description",
-                        Price = 450000
+                        Price = 450000,
+                        UploadDate = DateTime.Parse("2023-7-10"),
 
                     },
                     new Mobile
@@ -73,7 +76,8 @@ namespace DUEGsm.Models.seedData
                         BackCamera = "28",
                         Stroage = 124,
                         Description = "Description",
-                        Price = 250000
+                        Price = 250000,
+                        UploadDate = DateTime.Parse("2023-7-10"),
 
                     },
                     new Mobile
@@ -88,7 +92,8 @@ namespace DUEGsm.Models.seedData
                         BackCamera = "28",
                         Stroage = 124,
                         Description = "Description",
-                        Price = 250000
+                        Price = 250000,
+                        UploadDate = DateTime.Parse("2023-7-10"),
 
                     }
                 ) ;

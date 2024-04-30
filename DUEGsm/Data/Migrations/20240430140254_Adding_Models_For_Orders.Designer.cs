@@ -4,6 +4,7 @@ using DUEGsm.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DUEGsm.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240430140254_Adding_Models_For_Orders")]
+    partial class Adding_Models_For_Orders
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -106,7 +108,6 @@ namespace DUEGsm.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Brand")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Color")
@@ -114,20 +115,15 @@ namespace DUEGsm.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FrontCamera")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("Image")
-                        .HasColumnType("varbinary(max)");
-
                     b.Property<string>("Modell")
                         .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("OperatingSystem")
                         .IsRequired()
@@ -150,7 +146,7 @@ namespace DUEGsm.Data.Migrations
                     b.Property<int>("Stroage")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("UploadDate")
+                    b.Property<DateTime?>("UploadDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -369,7 +365,7 @@ namespace DUEGsm.Data.Migrations
             modelBuilder.Entity("DUEGsm.Models.OrderProduct", b =>
                 {
                     b.HasOne("DUEGsm.Models.Mobile", "Mobiles")
-                        .WithMany("OrderProducts")
+                        .WithMany()
                         .HasForeignKey("MobilesId");
 
                     b.HasOne("DUEGsm.Models.Order", "Order")
@@ -432,11 +428,6 @@ namespace DUEGsm.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("DUEGsm.Models.Mobile", b =>
-                {
-                    b.Navigation("OrderProducts");
                 });
 
             modelBuilder.Entity("DUEGsm.Models.Order", b =>
