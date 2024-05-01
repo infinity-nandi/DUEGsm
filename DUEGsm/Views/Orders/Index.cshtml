@@ -1,0 +1,93 @@
+﻿@model IEnumerable<DUEGsm.Models.Order>
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="title text-center">Megrendelések</h1>
+<div class="scrollBox">
+    <table class="table tableCenter">
+        <thead>
+            <tr>
+                <th>
+                    Vezetéknév
+                </th>
+                <th>
+                    Keresztnév
+                </th>
+                <th>
+                    Rendelés dátuma
+                </th>
+                <th>
+                    Megrendelt termék(ek)
+                </th>
+                <th>
+                    Státusz
+                </th>
+                <th>
+                    Végösszeg
+                </th>
+                @if (User.IsInRole("Admin"))
+                {
+                    <th>
+                        Státusz változtatás
+                    </th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+@foreach (var item in Model)
+        {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ApplicationUser.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ApplicationUser.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderDate)
+                    </td>
+                    <td>
+                        <a class="productList" asp-action="Details" asp-route-id="@item.Id">Termék(ek)</a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @if (item.Mobiles != null && item.Mobiles.Any())  // Check if Mobiles is not null and has items
+                        {
+                            int sum = 0;
+                            foreach (var mobile in item.Mobiles)
+                            {
+                                if (mobile != null)
+                                {
+                                    sum += mobile.Price;
+                                }
+                            }
+                            <span class="bold">@sum <span> Ft</span></span>
+                        }
+                       @*  @if (item.Mobiles != null)
+                        {
+                            int sum = 0;
+                            foreach (var i in item.Mobiles)
+                            {
+                                sum += i.Price;
+                            }
+                            <span class="bold">@Html.DisplayFor(modelItem => sum) <span> Ft</span></span>
+                        } *@
+                    </td>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <td>
+                            <a class="productList" asp-action="Edit" asp-route-id="@item.Id">Elfogadás/Elutasítás</a>
+                        </td>
+                    }
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -107,6 +107,13 @@ namespace DUEGsm.Controllers
                 return NotFound();
             }
 
+            var relatedProducts = await _context.Mobiles
+                .Where(m => m.Id != id && m.Brand == mobile.Brand)
+                .Take(10)
+                .ToListAsync();
+
+            ViewBag.RelatedProducts = relatedProducts;
+
             return View(mobile);
         }
 

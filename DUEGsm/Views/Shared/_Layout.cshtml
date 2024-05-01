@@ -30,9 +30,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Mobiles" asp-action="Index">Telefonok</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Cart" asp-action="Index">Kosár</a>
-                        </li>
+                        @if (!User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Cart" asp-action="Index">Kosár</a>
+                            </li>
+                        }
 @*                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li> *@
@@ -41,7 +44,16 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Role" asp-action="Index">Felhasználói körök</a>
                             </li>
-                       } 
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="Index">Rendelések</a>
+                            </li>
+                       }
+                       @if (SignInManager.IsSignedIn(User) && !User.IsInRole("Admin"))
+                       {
+                           <li class="nav-item">
+                               <a class="nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="Index">Rendeléseim</a>
+                           </li>
+                       }
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>

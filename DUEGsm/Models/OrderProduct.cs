@@ -8,7 +8,7 @@ namespace DUEGsm.Models
         [Key]
         public int Id { get; set; }
 
-        [ForeignKey(nameof(Mobile))]
+        [ForeignKey(nameof(Mobiles))]
         public int ProductID { get; set; }
 
         [ForeignKey(nameof(Order))]

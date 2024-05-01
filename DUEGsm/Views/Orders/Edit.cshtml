@@ -1,0 +1,50 @@
+﻿@model DUEGsm.Models.Order
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="title">Rendelés kezelése</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group inputs">
+                <label asp-for="UserId" class="control-label">ID</label>
+                <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group inputs">
+                <label asp-for="ApplicationUser.LastName" class="control-label">Vezetéknév</label>
+                <input asp-for="ApplicationUser.LastName" class="form-control" />
+                <span asp-validation-for="ApplicationUser.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group inputs">
+                <label asp-for="ApplicationUser.FirstName" class="control-label">Keresztnév</label>
+                <input asp-for="ApplicationUser.FirstName" class="form-control" />
+                <span asp-validation-for="ApplicationUser.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group inputs">
+                <label asp-for="Status" class="control-label">Státusz</label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group inputs">
+                <label asp-for="OrderDate" class="control-label">Rendelés dátuma</label>
+                <input asp-for="OrderDate" class="form-control" />
+                <span asp-validation-for="OrderDate" class="text-danger"></span>
+            </div>
+            <div class="form-group buttons">
+                <a class="abuttom" asp-action="Index">Vissza</a>
+                <input type="submit" value="Mentés" class="saveButton" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

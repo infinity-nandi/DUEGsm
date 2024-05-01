@@ -125,7 +125,10 @@
                         {
                             <a class="abuttom" asp-action="Delete" asp-route-id="@item.Id">Törlés</a>
                         }
-                        <a class="abuttom" asp-controller="Cart" asp-action="buy" asp-route-id="@item.Id">Kosárba</a>
+                         @if (!User.IsInRole("Admin"))
+                        {
+                            <a class="abuttom" asp-controller="Cart" asp-action="buy" asp-route-id="@item.Id">Kosárba</a>
+                        }
                     </div>
                 </div>
                 </a>

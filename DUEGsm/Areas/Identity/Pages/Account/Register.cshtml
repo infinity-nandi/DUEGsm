@@ -10,7 +10,7 @@
     <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="loginForm">
         <div class="flex">
             <div class="login color">Regisztráció</div>
-            @* <div asp-validation-summary="ModelOnly" class="text-danger"></div> *@
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <label asp-for="Input.LastName" class="color"></label>
             <input asp-for="Input.LastName" class="inputForm" autocomplete="username" aria-required="true" />
             <span asp-validation-for="Input.LastName" class="text-danger"></span>
