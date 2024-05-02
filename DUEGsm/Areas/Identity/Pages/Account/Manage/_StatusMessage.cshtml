@@ -1,10 +1,25 @@
 ﻿@model string
 
+<link rel="stylesheet" href="~/css/Manage.css" asp-append-version="true" />
+
 @if (!String.IsNullOrEmpty(Model))
 {
-    var statusMessageClass = Model.StartsWith("Error") ? "danger" : "success";
-    <div class="alert alert-@statusMessageClass alert-dismissible" role="alert">
+    string message;
+    string statusMessageClass;
+    @* var statusMessageClass = Model.StartsWith("Error") ? "danger" : "success"; *@
+    if (Model.StartsWith("Error"))
+    {
+        statusMessageClass = "danger";
+        message = "Hiba történt a profilja frissitése közben";
+    }
+    else
+    {
+        statusMessageClass = "success";
+        message = "A profilja frissítve lett!";
+    }
+    <div class="alert alert-@statusMessageClass alert-dismissible respondToChange" role="alert">
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        @Model
+        @message
+        @* @Model *@
     </div>
 }

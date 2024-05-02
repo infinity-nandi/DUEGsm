@@ -1,0 +1,137 @@
+﻿.bg {
+    /* background-color: black;*/
+    background: linear-gradient(to right,rgb(98,19,76),rgb(21,0,54));
+}
+
+.title {
+    text-align: center;
+}
+
+.flex {
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+}
+
+.flexPassword {
+    margin-top: 28%;
+    display: flex;
+    flex-direction: column;
+}
+
+.ManageForm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-49%, -49%);
+}
+
+.Savebttn {
+    margin-top: 5%;
+    width: 400px;
+/*    padding: 1rem 2rem;*/
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    background: rgb(255, 255, 255);
+    color: blueviolet;
+    /*border-radius: .5rem;*/
+    border-radius: 10px;
+    border-bottom: 2px solid blueviolet;
+    border-right: 2px solid blueviolet;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    transition-duration: 1s;
+    transition-property: border-top, border-left, border-bottom, border-right, box-shadow;
+}
+
+    .Savebttn:hover {
+        border-top: 2px solid blueviolet;
+        border-left: 2px solid blueviolet;
+        border-bottom: 2px solid rgb(238, 103, 238);
+        border-right: 2px solid rgb(238, 103, 238);
+        box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px;
+    }
+
+.form label {
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.inputForm {
+    width: 400px;
+    margin-bottom: 2%;
+    color: white;
+    height: 40px;
+    outline: none;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+    box-shadow: 2px 2px 12px inset black;
+    background: linear-gradient(to right,rgb(98,19,76),rgb(21,0,54));
+}
+
+    .inputForm:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px #150036 inset;
+        -webkit-text-fill-color: white !important;
+        /*background-image: linear-gradient(to right, rgb(98,19,76), rgb(21,0,54)) !important;*/
+    }
+
+.span:hover {
+    font-weight: bold;
+}
+
+.color {
+    color: white;
+}
+
+.regConf {
+    color: white;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+    padding: 40px;
+    border-radius: 10px;
+    height: 500px;
+}
+
+.manageOption {
+    display: inline-block;
+    width: 200px;
+    padding: 10px;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    color: blueviolet;
+    font-weight: 700;
+    font-size: 19px;
+}
+
+    .manageOption:hover {
+        background: #150036;
+        color: white;
+    }
+
+.manageList {
+    list-style: none;
+    margin-left: -31px;
+    margin-top: 2%;
+    
+}
+
+.manageItem {
+    margin-bottom: 3%;
+}
+
+.respondToChange {
+    width: 400px;
+    margin-top: -15%;
+    margin-left: 57%;
+    height: 55px;
+    color: black;
+    font-weight: 700;
+    text-align: center;
+    background-color: white
+}
