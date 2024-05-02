@@ -135,3 +135,12 @@
     text-align: center;
     background-color: white
 }
+
+.smallThing {
+   height: 1px;
+   margin-top: -1px;
+}
+
+.smallerThing {
+    margin-top: 1px;
+}

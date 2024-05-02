@@ -5,6 +5,8 @@
 @{
     ViewData["Title"] = "Telefonok";
 }
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" /> 
 <link rel="stylesheet" href="~/css/MobilesIndex.css" asp-append-version="true" />
 <script src="~/js/inputBefore.js" type="text/javascript" asp-append-version="true"></script>
 
@@ -101,7 +103,7 @@
             {
                 <a class="abuttom" asp-action="Details" asp-route-id="@item.Id">
                 <div class="box">
-                    <span></span>
+                    <span class="design"></span>
                     <div class="content">
                     <div class="image">
                        <img class="kep" src="~/Content/Image//testDevice.jpg" alt="Nincs kép">
@@ -111,25 +113,15 @@
                             @Html.DisplayFor(modelItem => item.Modell)
                         </h5>
                         <h6 class="text">@Html.DisplayFor(modelItem => item.Price) Ft</h6>
-                        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
-                        {
-                            <a class="abuttom" asp-action="Edit" asp-route-id="@item.Id">Szerksztés</a><br>
-                        }
-                        @* <a class="abuttom" asp-action="Details" asp-route-id="@item.Id">Részletek</a><br> *@
-@*                         @if (SignInManager.IsSignedIn(User) && User.IsInRole("Felhasználó"))
-                        {
-                            <a class="abuttom" asp-controller="Cart" asp-action="buy" asp-route-id="@item.Id">Kosárba</a>
-                            <br>
-                        } *@
-                        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
-                        {
-                            <a class="abuttom" asp-action="Delete" asp-route-id="@item.Id">Törlés</a>
-                        }
                          @if (!User.IsInRole("Admin"))
                         {
-                            <a class="abuttom" asp-controller="Cart" asp-action="buy" asp-route-id="@item.Id">Kosárba</a>
+                            <a class="abuttom" asp-controller="Cart" asp-action="buy" asp-route-id="@item.Id"><img class="bin" src="~/Content/Image/cart.png"></a>
                         }
-                    </div>
+                        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                                <a class="Del" asp-action="Delete" asp-route-id="@item?.Id"><img class="bin" src="~/Content/Image/delete.png"></a>
+                        }
+                        </div>
                 </div>
                 </a>
             }

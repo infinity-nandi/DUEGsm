@@ -163,7 +163,7 @@ ul {
         background: linear-gradient(315deg, #150036, #62134C)
     }
 
-    .box span {
+    .design {
         display: block;
         position: absolute;
         top: 0;
@@ -174,53 +174,53 @@ ul {
         pointer-events: none;
     }
 
-        .box span::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 0;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            opacity: 0;
-            transition: 0.1s;
-            animation: animate 2s ease-in-out infinite;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08)
-        }
+    .design::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        opacity: 0;
+        transition: 0.1s;
+        animation: animate 2s ease-in-out infinite;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08)
+    }
 
-        .box span::before {
-            top: -40px;
-            left: 40px;
-            width: 50px;
-            height: 50px;
-            opacity: 1;
-        }
+    .design::before {
+        top: -40px;
+        left: 40px;
+        width: 50px;
+        height: 50px;
+        opacity: 1;
+    }
 
-        .box span::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            opacity: 0;
-            transition: 0.5s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            animation-delay: -1s;
-        }
+    .design::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        opacity: 0;
+        transition: 0.5s;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        animation-delay: -1s;
+    }
 
-        .box span:after {
-            bottom: -40px;
-            right: 40px;
-            width: 50px;
-            height: 50px;
-            opacity: 1;
-        }
+    .design:after {
+        bottom: -40px;
+        right: 40px;
+        width: 50px;
+        height: 50px;
+        opacity: 1;
+    }
 
     .box .content {
         position: relative;
@@ -325,6 +325,12 @@ ul {
 
 h1 {
     font-weight: bold;
+}
+
+.bin {
+    height: auto;
+    width: 24px;
+    margin-left: 45px;
 }
 
 

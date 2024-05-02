@@ -1,7 +1,9 @@
 ﻿@model DUEGsm.Models.Mobile 
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Részletek";
 }
 
 <link rel="stylesheet" href="~/css/MobilesDetDel.css" asp-append-version="true" />
@@ -72,17 +74,27 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Stroage)
         </dd>
-        <dt class = "col-sm-2">
+@*         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Description)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Description)
-        </dd>
+        </dd> *@
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.UploadDate)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.UploadDate)
+        </dd>
+    </dl>
+</div>
+<div class="descriptionCon">
+    <dl class="row description">
+        <dt class="col-sm-6">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
         </dd>
     </dl>
 </div>
@@ -110,6 +122,10 @@
     <i id="right" class="fa-solid fas fa-angel-right"></i>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Szerkesztés</a> |
-    <a asp-action="Index">Vissza a listába</a>
+    <a asp-action="Index" class="Back">Vissza</a>
+    <a class="Cart" asp-controller="Cart" asp-action="buy" asp-route-id="@Model.Id"><img class="bin" src="~/Content/Image/cart.png"></a>
+    @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+    {
+        <a class="Edit" asp-action="Edit" asp-route-id="@Model?.Id">Szerkesztés</a>
+    }
 </div>
