@@ -58,7 +58,7 @@
     margin-bottom: 5px;
 }
 
-.inputForm {
+.inputF{
     width: 400px;
     margin-bottom: 2%;
     color: white;
@@ -73,7 +73,7 @@
     background: linear-gradient(to right,rgb(98,19,76),rgb(21,0,54));
 }
 
-    .inputForm:-webkit-autofill {
+    .inputF:-webkit-autofill {
         -webkit-box-shadow: 0 0 0px 1000px #150036 inset;
         -webkit-text-fill-color: white !important;
         /*background-image: linear-gradient(to right, rgb(98,19,76), rgb(21,0,54)) !important;*/
