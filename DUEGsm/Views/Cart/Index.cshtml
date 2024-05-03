@@ -5,73 +5,78 @@
     ViewData["Title"] = "Kosár";
 }
 
-<link rel="stylesheet" href="~/css/CartIndex.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/Cart.css" asp-append-version="true" />
 
-<h1 class="title">Kosár</h1>
-<h3>Kosárba helyezett termékek:</h3>
-<table class="onlyTable">
-    <tr>
-        <th>Kép</th>
-        <th>Márka</th>
-        <th>Megnevezés</th>
-        <th>Típus</th>
-        <th>Ár</th>
-        <th>Törlés</th>
-    </tr>
-    @if (ViewBag.cart != null)
-    {
-        @foreach (var item in ViewBag.cart)
-        {
+<body class="bg">
+    <div class="regConf"> 
+        <h1 class="Title">Kosár</h1>
+        <h3>Kosárba helyezett termékek:</h3>
+        <table class="cartTable">
             <tr>
-                <td>
-                    <div class="imageBox">
-@*                         @if (item.Image != null && item.Image.Length > 0)
-                        {
-                            string imageSource = $"data:image;base64,{Convert.ToBase64String(item.Image)}";
-                            <img class="kep" src="@imageSource" alt="Termék kép">
-                        }
-                        else
-                        { *@
-                            <img class="kep" src="~/Content/Image/testDevice.jpg" alt="Nincs kép">
-                        @* } *@
-                    </div>
-                </td>
-                <td>@item.Brand</td>
-                <td>@item.Modell</td>
-                <td>@item.Color</td>
-                <td>@item.Price <span> Ft</span></td>
-                <td><a class="remove" asp-controller="Cart" asp-action="remove" asp-route-id="@item.Id">Törlés</a></td>
+                <th>Kép</th>
+                <th>Márka</th>
+                <th>Megnevezés</th>
+                <th>Típus</th>
+                <th>Ár</th>
+                <th>Törlés</th>
             </tr>
+            @if (ViewBag.cart != null)
+            {
+                @foreach (var item in ViewBag.cart)
+                {
+                    <tr>
+                        <td>
+                            <div class="imageBox">
+                                @if (item.Image != null && item.Image.Length > 0)
+                                {
+                                    string imageSource = $"data:image;base64,{Convert.ToBase64String(item.Image)}";
+                                    <img class="Pic" src="@imageSource" alt="Termék kép">
+                                }
+                                else
+                                {
+                                    <img class="Pic" src="~/Content/Image/testDevice.jpg" alt="Nincs kép">
+                                }
+                            </div>
+                        </td>
+                        <td>@item.Brand</td>
+                        <td>@item.Modell</td>
+                        <td>@item.Color</td>
+                        <td>@item.Price <span> Ft</span></td>
+                        <td><a class="Delete" asp-controller="Cart" asp-action="remove" asp-route-id="@item.Id">Törlés</a></td>
+                    </tr>
+                }
+
+            }
+            else
+            {
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            }
+
+        </table>
+        <div class="total">
+            Végösszeg: @ViewBag.total<span> Ft</span>
+        </div>
+
+        <a class="backToShopping" asp-controller="Mobiles" asp-action="Index">Vásárlás folytatása</a>
+        @if (ViewBag.cart != null)
+        {
+            <a class="placeOrder" asp-controller="Cart" asp-action="CreateOrder">Rendelés leadása</a>
         }
+        else
+        {
+            <a class="disabled" title="A kosár üres"> Rendelés leadása</a>
 
-    }
-    else
-    {
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    }
+        }
+    </div>
+</body>
 
-</table>
-<div class="total">
-    Végösszeg: @ViewBag.total<span> Ft</span>
-</div>
-
-<a class="abutton" asp-controller="Mobiles" asp-action="Index">Vásárlás folytatása</a>
-@if (ViewBag.cart != null)
-{
-    <a class="abutton" asp-controller="Cart" asp-action="CreateOrder">Rendelés leadása</a>
-}
-else
-{
-    <a class="disable" title="A kosár üres"> Rendelés leadása</a>
-
-}
 
 
 

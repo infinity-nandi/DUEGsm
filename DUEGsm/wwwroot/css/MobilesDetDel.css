@@ -80,3 +80,21 @@
     width: 600px;
     margin-top: -350px;
 }
+
+.Delete {
+    display: flex;
+    float: right;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    font-size: 19px;
+    font-weight: bold;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+}
+
+    .Delete:hover {
+        box-shadow: 2px 2px 12px #97477D;
+        color: white;
+    }
