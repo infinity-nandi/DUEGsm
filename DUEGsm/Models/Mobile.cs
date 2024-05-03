@@ -64,6 +64,8 @@ namespace DUEGsm.Models
 
         public List<OrderProduct>? OrderProducts { get; set; }
 
+        public ICollection<ProductPicture>? ProductPictures { get; set; }
+
         [NotMapped]
         public List<IFormFile> PictureFiles { get; set; } = new List<IFormFile>();
 

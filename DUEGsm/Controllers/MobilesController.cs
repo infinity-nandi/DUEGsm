@@ -48,10 +48,10 @@ namespace DUEGsm.Controllers
                     mobile = mobile.OrderBy(x => x.Price);
                     break;
                 case 4:
-                    mobile = mobile.OrderBy(x => x.Modell);
+                    mobile = mobile.OrderByDescending(x => x.Modell);
                     break;
                 case 5:
-                    mobile = mobile.OrderByDescending(x => x.Modell);
+                    mobile = mobile.OrderBy(x => x.Modell);
                     break;
             }
 
@@ -128,10 +128,20 @@ namespace DUEGsm.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Brand,Modell,Color,OperatingSystem,Screen,Processor,FrontCamera,BackCamera,Stroage,Description")] Mobile mobile)
+        public async Task<IActionResult> Create([Bind("Id,Brand,Modell,Color,OperatingSystem,Screen,Processor,FrontCamera,BackCamera,Stroage,Description,Price,UploadDate,Image")] Mobile mobile)
         {
             if (ModelState.IsValid)
             {
+                var fileList = HttpContext.Request.Form.Files;
+                if (fileList.Any())
+                {
+                    using (var filContent = fileList.First().OpenReadStream())
+                    {
+                        byte[] fileBinary = new byte[filContent.Length];
+                        var length = filContent.Read(fileBinary, 0, (int)filContent.Length);
+                        mobile.Image = fileBinary;
+                    }
+                }
                 _context.Add(mobile);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -160,7 +170,7 @@ namespace DUEGsm.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Brand,Modell,Color,OperatingSystem,Screen,Processor,FrontCamera,BackCamera,Stroage,Description")] Mobile mobile)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Brand,Modell,Color,OperatingSystem,Screen,Processor,FrontCamera,BackCamera,Stroage,Description,Price,UploadDate,Image")] Mobile mobile)
         {
             if (id != mobile.Id)
             {
@@ -171,6 +181,16 @@ namespace DUEGsm.Controllers
             {
                 try
                 {
+                    var fileList = HttpContext.Request.Form.Files;
+                    if (fileList.Any())
+                    {
+                        using (var filContent = fileList.First().OpenReadStream())
+                        {
+                            byte[] fileBinary = new byte[filContent.Length];
+                            var length = filContent.Read(fileBinary, 0, (int)filContent.Length);
+                            mobile.Image = fileBinary;
+                        }
+                    }
                     _context.Update(mobile);
                     await _context.SaveChangesAsync();
                 }

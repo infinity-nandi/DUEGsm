@@ -8,7 +8,7 @@
 <script src="~/js/inputBefore.js" type="text/javascript" asp-append-version="true"></script>
 
 <body class="bg">
-    <form asp-action="Edit" class="logF">
+    <form asp-action="Edit" class="logF" enctype="multipart/form-data">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="flex">
             <div class="login color">Termék szerkesztése</div>
@@ -57,6 +57,14 @@
             <label asp-for="UploadDate" class="color"></label>
             <input asp-for="UploadDate" class="inputF" />
             <span asp-validation-for="UploadDate" class="text-danger"></span>
+
+            <label asp-for="Price" class="color"></label>
+            <input asp-for="Price" class="inputF" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+
+            <label asp-for="Image" class="color"></label>
+            <input asp-for="Image" multiple type="file" class="inputF" accept=".jpg, .jpeg, .png, .gif">
+            <span asp-validation-for="Image" class="text-danger"></span>
 
             <input type="submit" value="Mentés" class="LogInbutton" />
         </div>

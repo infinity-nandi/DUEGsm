@@ -1,0 +1,64 @@
+﻿.bg {
+    /* background-color: black;*/
+    background: linear-gradient(to right,rgb(98,19,76),rgb(21,0,54));
+}
+
+.regConf {
+    color: white;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.orderTable {
+    width: 100%;
+    border-collapse: separate;
+    border: solid white 4px;
+    border-radius: 6px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: 20px;
+    text-align: center;
+    
+}
+
+td, th {
+    border-left: solid white 1px;
+    border-top: solid white 1px;
+    padding: 10px;
+}
+
+th {
+    border-top: none;
+    border-bottom: solid white 1px;
+    font-size: 25px;
+}
+
+    td:first-child, th:first-child {
+        border-left: none;
+    }
+
+.DetailsBtn {
+    width: 150px;
+    padding: 10px;
+/*    padding: 15px 25px;*/
+    border: unset;
+    border-radius: 25px;
+    color: #e8e8e8;
+    z-index: 1;
+    background: #150036;
+    position: relative;
+    font-weight: 700;
+    font-size: 14px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms;
+    overflow: hidden;
+}
+
+.Title {
+    margin-bottom: 4%;
+    font-size: 45px;
+    text-align: center;
+}

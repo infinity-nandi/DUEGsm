@@ -14,7 +14,15 @@
 
 
 <div class="conLeft">
-    <img class="Pic" src="~/Content/Image//testDevice.jpg" alt="Nincs kép">
+    @if (Model.Image != null && Model.Image.Length > 0)
+    {
+        string imageSource = $"data:image;base64,{Convert.ToBase64String(Model.Image)}";
+        <img class="Pic" src="@imageSource" alt="Termék kép">
+    }
+    else
+    {
+        <img class="Pic" src="~/Content/Image/testDevice.jpg" alt="Nincs kép">
+    }
 </div>
 <div>
     <h4>Telefon</h4>
@@ -109,7 +117,15 @@
             <a class="cardClick" asp-controller="Mobiles" asp-action="Details" asp-route-id="@item.Id">
             <li class="card">
                 <div class="img">
-                    <img class="kep" src="~/Content/Image/testDevice.jpg" alt="Kép" draggable="false">
+                        @if (item.Image != null && item.Image.Length > 0)
+                        {
+                            string imageSource = $"data:image;base64,{Convert.ToBase64String(item.Image)}";
+                        <img class="kep" src="@imageSource" alt="Termék kép">
+                        }
+                        else
+                        {
+                        <img class="kep" src="~/Content/Image/testDevice.jpg" alt="Nincs kép">
+                        }
                 </div>
                 <h2>
                     @item.Brand

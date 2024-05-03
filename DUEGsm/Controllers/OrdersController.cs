@@ -13,7 +13,6 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace DUEGsm.Controllers
 {
-    [Authorize(Roles = "Admin")]
     public class OrdersController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -110,6 +109,7 @@ namespace DUEGsm.Controllers
             return View(order);
         }*/
 
+        [Authorize(Roles = "Admin")]
         // GET: Orders/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -127,6 +127,7 @@ namespace DUEGsm.Controllers
             return View(order);
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Orders/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -163,6 +164,7 @@ namespace DUEGsm.Controllers
             return View(order);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Orders/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -182,6 +184,7 @@ namespace DUEGsm.Controllers
             return View(order);
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Orders/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -201,6 +204,7 @@ namespace DUEGsm.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize(Roles = "Admin")]
         private bool OrderExists(int id)
         {
             try

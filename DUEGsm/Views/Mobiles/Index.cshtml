@@ -106,7 +106,15 @@
                     <span class="design"></span>
                     <div class="content">
                     <div class="image">
-                       <img class="kep" src="~/Content/Image//testDevice.jpg" alt="Nincs kép">
+                        @if (item.Image != null && item.Image.Length > 0)
+                        {
+                            string imageSource = $"data:image;base64,{Convert.ToBase64String(item.Image)}";
+                            <img class="kep" src="@imageSource" alt="Termék kép">
+                        }
+                        else
+                        {
+                            <img class="kep" src="~/Content/Image/testDevice.jpg" alt="Nincs kép">
+                        }
                     </div>
                         <h5 class="text">
                             @Html.DisplayFor(modelItem => item.Brand)
