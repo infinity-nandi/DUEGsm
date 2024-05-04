@@ -10,7 +10,6 @@ namespace DUEGsm.Models
 
         [ForeignKey(nameof(ApplicationUser))]
         public string UserId { get; set; }
-
         public string? Status { get; set; }
         public DateTime? OrderDate { get; set; }
 

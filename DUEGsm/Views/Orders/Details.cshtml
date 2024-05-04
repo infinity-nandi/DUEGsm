@@ -4,72 +4,78 @@
     ViewData["Title"] = "Details";
 }
 
-<h1 class="title text-center">Megrendelt termék(ek)</h1>
 
-<div>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    Márka
-                </th>
-                <th>
-                    Megnevezés
-                </th>
-                <th>
-                    Típus
-                </th>
-                <th>
-                    Operációs rendszer
-                </th>
-                <th>
-                    Processzor
-                </th>
-                <th>
-                    Ár
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (Model.Mobiles != null)
-            {
-                @foreach (var item in Model.Mobiles)
-                {
+<link rel="stylesheet" href="~/css/Orders.css" asp-append-version="true" />
+
+<body class="bg">
+    <div class="regConf">
+        <h1 class="Title">Megrendelt termék(ek)</h1>
+        <div class="scrollBox">
+            <table class="orderTable">
+                <thead>
                     <tr>
-                        <td>
-                            <div class="imageBox">
-                                @if (item.Image != null && item.Image.Length > 0)
-                                {
-                                    string imageSource = $"data:image;base64,{Convert.ToBase64String(item.Image)}";
-                                    <img class="kep" src="@imageSource" alt="Termék kép">
-                                }
-                            </div>
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Brand)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Modell)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Color)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.OperatingSystem)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Processor)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Price)
-                        </td>
+                        <th>
+                            Kép
+                        </th>
+                        <th>
+                            Márka
+                        </th>
+                        <th>
+                            Modell
+                        </th>
+                        <th>
+                            Szín
+                        </th>
+                        <th>
+                            Tárhely
+                        </th>
+                        <th>
+                            Ár
+                        </th>
                     </tr>
-                }
-            }
-        </tbody>
-    </table>
+                </thead>
+                <tbody>
+                    @if (Model.Mobiles != null)
+                    {
+                        @foreach (var item in Model.Mobiles)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="imageBox">
+                                        @if (item.Image != null && item.Image.Length > 0)
+                                        {
+                                            string imageSource = $"data:image;base64,{Convert.ToBase64String(item.Image)}";
+                                            <img class="Pic" src="@imageSource" alt="Termék kép">
+                                        }
+                                        else
+                                        {
+                                            <img class="Pic" src="~/Content/Image/testDevice.jpg" alt="Nincs kép">
+                                        }
+                                    </div>
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Brand)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Modell)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Color)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Stroage)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Price)
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
 </div>
+</body>
 <div>
-    <a class="productList" asp-action="Index">Vissza</a>
+    <a class="back" asp-action="Index">Vissza</a>
 </div>

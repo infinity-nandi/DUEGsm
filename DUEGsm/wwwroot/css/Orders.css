@@ -62,3 +62,113 @@ th {
     font-size: 45px;
     text-align: center;
 }
+
+.Pic {
+    height: auto;
+    width: 50px;
+}
+
+.back{
+    margin-top: 4%;
+    display: flex;
+    width: 100px;
+    text-decoration: none;
+    border-radius: 10px;
+    border: none;
+    padding: 10px 10px 10px 20px;
+    font-size: 19px;
+    font-weight: bold;
+    margin-bottom: 1%;
+    background-color: #97477D;
+    color: white;
+}
+
+    .back:hover {
+        color: white;
+        box-shadow: 2px 2px 12px #97477D;
+    }
+
+.hide-field {
+    display: none;
+}
+
+.statusForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+    padding: 40px;
+    border-radius: 10px;
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-49%, -49%);
+}
+
+.login {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputForm {
+    width: 300px;
+    margin-bottom: 3%;
+    color: white;
+    height: 40px;
+    outline: none;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+    box-shadow: 2px 2px 12px inset black;
+    background: linear-gradient(to right,rgb(98,19,76),rgb(21,0,54));
+}
+
+    .inputForm:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px #150036 inset;
+        -webkit-text-fill-color: white !important;
+        /*background-image: linear-gradient(to right, rgb(98,19,76), rgb(21,0,54)) !important;*/
+    }
+
+.span:hover {
+    font-weight: bold;
+}
+
+.color {
+    color: white;
+}
+
+.LogInbutton {
+    display: flex;
+    float: right;
+    margin-top: -16%;
+    margin-right: 20px;
+    margin-bottom: 6px;
+    border-radius: 10px;
+    border: none;
+    padding: 10px 15px 10px 15px;
+    font-size: 19px;
+    font-weight: bold;
+    margin-bottom: 5%;
+    background-color: #97477D;
+    color: white;
+}
+
+.form label {
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.LogInbutton:hover {
+    box-shadow: 2px 2px 12px #97477D;
+}
