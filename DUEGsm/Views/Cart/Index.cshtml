@@ -1,4 +1,7 @@
-﻿@*
+﻿@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
@@ -65,13 +68,13 @@
         </div>
 
         <a class="backToShopping" asp-controller="Mobiles" asp-action="Index">Vásárlás folytatása</a>
-        @if (ViewBag.cart != null)
+        @if (ViewBag.cart != null && SignInManager.IsSignedIn(User))
         {
             <a class="placeOrder" asp-controller="Cart" asp-action="CreateOrder">Rendelés leadása</a>
         }
         else
         {
-            <a class="disabled" title="A kosár üres"> Rendelés leadása</a>
+            <a class="disabled" title="A kosár üres és nincs bejelentkezve"> Rendelés leadása</a>
 
         }
     </div>
