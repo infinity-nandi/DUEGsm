@@ -82,8 +82,9 @@ namespace DUEGsm.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
+            [RegularExpression(@"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$", ErrorMessage = "Nem megfelelő e-mail formátum.")]
             [Required(ErrorMessage = "A mező nem lehet üres!")]
-            [EmailAddress]
+            /*[EmailAddress]*/
             [Display(Name = "Email")]
             public string Email { get; set; }
 
@@ -94,6 +95,7 @@ namespace DUEGsm.Areas.Identity.Pages.Account
             [Required(ErrorMessage = "A mező nem lehet üres!")]
             [StringLength(100, ErrorMessage = "A jelszó minimum {2} és maximum {1} hosszú.", MinimumLength = 6)]
             [DataType(DataType.Password)]
+            [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,}$", ErrorMessage = "A jelszónak legalább 8 karakter hosszúnak kell lennie, és tartalmaznia kell legalább egy kisbetűt, egy nagybetűt, egy számot és egy speciális karaktert.")]
             [Display(Name = "Jelszó")]
             public string Password { get; set; }
 
